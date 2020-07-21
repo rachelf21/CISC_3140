@@ -1,0 +1,188 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20200720201947
+Username: DESKTOP-BR6Q9RK\Rachel
+RunAs User: DESKTOP-BR6Q9RK\Rachel
+Configuration Name: 
+Machine: DESKTOP-BR6Q9RK (Microsoft Windows NT 10.0.18362.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 24720
+PSVersion: 5.1.18362.752
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.18362.752
+BuildVersion: 10.0.18362.752
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is log_task3.txt
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> curl -o data.zip http://files.grouplens.org/datasets/movielens/ml-latest-small.zip
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> expand-archive data.zip movies_data
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> cd movies_data
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data> ls
+
+
+    Directory: C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY
+    WORK\movies_data
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        7/20/2020   8:21 PM                ml-latest-small
+
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data> cd ml-latest-small
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> ls
+
+
+    Directory: C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY
+    WORK\movies_data\ml-latest-small
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/26/2018   3:50 PM         197979 links.csv
+-a----        9/26/2018   3:49 PM         494431 movies.csv
+-a----        9/26/2018   3:49 PM        2483723 ratings.csv
+-a----        9/26/2018   3:50 PM           8342 README.txt
+-a----        9/26/2018   3:49 PM         118660 tags.csv
+
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> cat movies.csv -head 5
+movieId,title,genres
+1,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy
+2,Jumanji (1995),Adventure|Children|Fantasy
+3,Grumpier Old Men (1995),Comedy|Romance
+4,Waiting to Exhale (1995),Comedy|Drama|Romance
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> import-csv movies.csv | select 'title' > movie_titles.csv
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> cat movie_titles.csv -head 10
+title
+-----
+Toy Story (1995)
+Jumanji (1995)
+Grumpier Old Men (1995)
+Waiting to Exhale (1995)
+Father of the Bride Part II (1995)
+Heat (1995)
+Sabrina (1995)
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> $CSV = import-csv movie_titles.csv -Header ‘title’
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> $CSV | foreach-object { $_.PSObject.Properties | Foreach-Object { $_.Value= $_.Value.Trim() }     }
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small>  $CSV | ConvertTo-Csv -UseCulture -NoTypeInformation | Out-File trimmed.csv
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> cat trimmed.csv -head 10
+"title"
+"-----"
+"Toy Story (1995)"
+"Jumanji (1995)"
+"Grumpier Old Men (1995)"
+"Waiting to Exhale (1995)"
+"Father of the Bride Part II (1995)"
+"Heat (1995)"
+"Sabrina (1995)"
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> $NewFile = Import-Csv trimmed.csv | ForEach-Object { $_.title = $_.title.replace(')', '') 
+$_ }
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> $NewFile | ConvertTo-CSV -UseCulture -NoTypeInformation | Out-File trimmed2.csv
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> Import-Csv trimmed2.csv | foreach {
+$title, $year = $_.title.Split("(")
+$_ | Add-Member -MemberType NoteProperty -Name year -Value $year
+$_ | Add-Member -MemberType NoteProperty -Name movietitle -Value $title
+$_ } | select year, movietitle | Export-Csv trimmed3.csv -NoTypeInformation
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> cat trimmed3.csv -head 10
+"year","movietitle"
+,"title"
+,"-----"
+"1995","Toy Story "
+"1995","Jumanji "
+"1995","Grumpier Old Men "
+"1995","Waiting to Exhale "
+"1995","Father of the Bride Part II "
+"1995","Heat "
+"1995","Sabrina "
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> cat trimmed3.csv -head 30
+"year","movietitle"
+,"title"
+,"-----"
+"1995","Toy Story "
+"1995","Jumanji "
+"1995","Grumpier Old Men "
+"1995","Waiting to Exhale "
+"1995","Father of the Bride Part II "
+"1995","Heat "
+"1995","Sabrina "
+"1995","Tom and Huck "
+"1995","Sudden Death "
+"1995","GoldenEye "
+"1995","Dracula: Dead and Loving It "
+"1995","Balto "
+"1995","Nixon "
+"1995","Cutthroat Island "
+"1995","Casino "
+"1995","Sense and Sensibility "
+"1995","Four Rooms "
+"1995","Ace Ventura: When Nature Calls "
+"1995","Money Train "
+"1995","Get Shorty "
+"1995","Copycat "
+"1995","Assassins "
+"1995","Powder "
+"1995","Leaving Las Vegas "
+"1995","Othello "
+"1995","Now and Then "
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> cat trimmed3.csv -tail 20
+"2010","Iron Soldier "
+"2018","BlacKkKlansman "
+"2018","The Darkest Minds "
+"2011","Tilt "
+"2017","Jeff Ross Roasts the Border "
+"2015","John From "
+"2017","Liquid Truth "
+"1998","Bunny "
+"2017","Gintama "
+"2010","Gintama: The Movie "
+"2013","anohana: The Flower We Saw That Day - The Movie "
+"2014","Silver Spoon "
+"2015","Love Live! The School Idol Movie "
+"2015","Jon Stewart Has Left the Building "
+"2017","Black Butler: Book of the Atlantic "
+"2017","No Game No Life: Zero "
+"2017","Flint "
+"2018","Bungo Stray Dogs: Dead Apple "
+"1991","Andrew Dice Clay: Dice Rules "
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> import-csv trimmed3.csv | sort year, movietitle | export-csv final.csv -notypeinformation
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> cat final.csv -head 20
+"year","movietitle"
+"1903","The Great Train Robbery "
+"1908","The Electric Hotel "
+"1916","Intolerance: Love's Struggle Throughout the Ages "
+"1916","Snow White "
+"1919","Daddy Long Legs "
+"1920","One Week "
+"1923","Our Hospitality "
+"1923","Safety Last! "
+"1924","Greed "
+"1924","Sherlock Jr. "
+"1925","Battleship Potemkin "
+"1925","Ben-Hur: A Tale of the Christ "
+"1926","By the Law "
+"1926","Faust "
+"1927","College "
+"1927","Metropolis "
+"1927","Sunrise: A Song of Two Humans "
+"1928","Steamboat Willie "
+"1930","All Quiet on the Western Front "
+"1930","Animal Crackers "
+"1930","Anna Christie "
+"1931","Cimarron "
+"1931","City Lights "
+"1931","Dr. Jekyll and Mr. Hyde "
+"1931","Dracula "
+"1931","Frankenstein "
+"1931","Girls About Town "
+"1931","Iron Man "
+"1931","Little Caesar "
+"1931","M "
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\movies_data\ml-latest-small> stop-transcript
+**********************
+Windows PowerShell transcript end
+End time: 20200720202929
+**********************

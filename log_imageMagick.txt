@@ -1,0 +1,44 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20200720204401
+Username: DESKTOP-BR6Q9RK\Rachel
+RunAs User: DESKTOP-BR6Q9RK\Rachel
+Configuration Name: 
+Machine: DESKTOP-BR6Q9RK (Microsoft Windows NT 10.0.18362.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 24720
+PSVersion: 5.1.18362.752
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.18362.752
+BuildVersion: 10.0.18362.752
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is log_imageMagick.txt
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick convert -fill blue -font Clattering -size 300x150   -gravity center label:"Have an " img1.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick convert -fill blue -font Clattering -size 300x150   -gravity center label:"awesome " img2.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick convert -fill blue -font Clattering -size 300x150   -gravity center label:"summer! " img3.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick convert -delay 100 -size 300x700 xc:transparent -page +5+5 img1.gif -page +5+155 img2.gif -page +5+305 img3.gif -page +5+455 img4.gif -loop 0 animation.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick convert -delay 100 -size 300x700 xc:transparent -page +5+5 img1.gif -page +5+155 img2.gif -page +5+305 img3.gif -page +5+455 sun.jpg -loop 0 animation.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick sun.png -resize 300x200 sun-resized.png
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick convert -delay 100 -size 300x700 xc:transparent -page +5+5 img1.gif -page +5+155 img2.gif -page +5+305 img3.gif -page +5+455 sun-resized.png -loop 0 animation.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK>  magick convert bg.jpg animation.gif -loop 0 animation_on_bg.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick animation.gif -fill black -annotate +5+550 'Created by Rachel Friedman for CISC3140' animation_annotated.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> magick animation.gif -fill black -annotate +5+680 'Created by Rachel Friedman for CISC3140' animation_annotated.gif
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> stop-transcript
+**********************
+Windows PowerShell transcript end
+End time: 20200720210356
+**********************

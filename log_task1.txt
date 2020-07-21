@@ -1,0 +1,147 @@
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~
+$ cd '/c/Users/Rachel/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1'
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1
+$ git init
+Initialized empty Git repository in C:/Users/Rachel/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1/.git/
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git remote add https://github.com/rachelf21/CISC_3140_Task1.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=<push|fetch>]
+                          set up remote as a mirror to push to or fetch from
+
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git remote add origin https://github.com/rachelf21/CISC_3140_Task1.git
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ ls
+animation.gif            img1.gif  img3.gif  sun-resized.png
+animation_annotated.gif  img2.gif  sun.png
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git push origin master
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/rachelf21/CISC_3140_Task1.git'
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git add .
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   animation.gif
+        new file:   animation_annotated.gif
+        new file:   img1.gif
+        new file:   img2.gif
+        new file:   img3.gif
+        new file:   sun-resized.png
+        new file:   sun.png
+
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git commit -m "added ImageMagick files to repo"
+[master (root-commit) 30f1a7b] added ImageMagick files to repo
+ 7 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 animation.gif
+ create mode 100644 animation_annotated.gif
+ create mode 100644 img1.gif
+ create mode 100644 img2.gif
+ create mode 100644 img3.gif
+ create mode 100644 sun-resized.png
+ create mode 100644 sun.png
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ ls
+animation.gif            img1.gif  img3.gif  sun-resized.png
+animation_annotated.gif  img2.gif  sun.png
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git push origin master
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 317.51 KiB | 17.64 MiB/s, done.
+Total 9 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), done.
+To https://github.com/rachelf21/CISC_3140_Task1.git
+ * [new branch]      master -> master
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ vi features.txt
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git add features.txt
+warning: LF will be replaced by CRLF in features.txt.
+The file will have its original line endings in your working directory.
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git commit -m "added features.txt"
+[master 43ff9d3] added features.txt
+ 1 file changed, 7 insertions(+)
+ create mode 100644 features.txt
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git push origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 487 bytes | 487.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/rachelf21/CISC_3140_Task1.git
+   30f1a7b..43ff9d3  master -> master
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ vi features.txt
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git add features.txt
+warning: LF will be replaced by CRLF in features.txt.
+The file will have its original line endings in your working directory.
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   features.txt
+
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git commit -m "Edited features.txt"
+[master 9153f9b] Edited features.txt
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 393 bytes | 393.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/rachelf21/CISC_3140_Task1.git
+   43ff9d3..9153f9b  master -> master
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$
