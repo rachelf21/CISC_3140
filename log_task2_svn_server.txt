@@ -1,0 +1,21 @@
+rfriedman113@DESKTOP-BR6Q9RK:/repos$ sudo svnadmin create covid_app
+[sudo] password for rfriedman113:
+rfriedman113@DESKTOP-BR6Q9RK:/repos$ ls
+cars  covid_app  new_app
+rfriedman113@DESKTOP-BR6Q9RK:/repos$ sudo chown rfriedman113:rfriedman113 -R covid_app
+rfriedman113@DESKTOP-BR6Q9RK:/repos$ ll covid_app
+total 0
+drwxr-xr-x 1 rfriedman113 rfriedman113 512 Jul 22 16:09 ./
+drwxr-xr-x 1 root         root         512 Jul 22 16:09 ../
+-rw-r--r-- 1 rfriedman113 rfriedman113 246 Jul 22 16:09 README.txt
+drwxr-xr-x 1 rfriedman113 rfriedman113 512 Jul 22 16:09 conf/
+drwxr-xr-x 1 rfriedman113 rfriedman113 512 Jul 22 16:09 db/
+-r--r--r-- 1 rfriedman113 rfriedman113   2 Jul 22 16:09 format
+drwxr-xr-x 1 rfriedman113 rfriedman113 512 Jul 22 16:09 hooks/
+drwxr-xr-x 1 rfriedman113 rfriedman113 512 Jul 22 16:09 locks/
+rfriedman113@DESKTOP-BR6Q9RK:/repos$ cd covid_app/conf
+rfriedman113@DESKTOP-BR6Q9RK:/repos/covid_app/conf$ ls
+authz  hooks-env.tmpl  passwd  svnserve.conf
+rfriedman113@DESKTOP-BR6Q9RK:/repos/covid_app/conf$ sudo vi svnserve.conf
+rfriedman113@DESKTOP-BR6Q9RK:/repos/covid_app/conf$ sudo vi passwd
+rfriedman113@DESKTOP-BR6Q9RK:/repos/covid_app/conf$

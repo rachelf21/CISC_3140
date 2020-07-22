@@ -1,0 +1,116 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20200722161458
+Username: DESKTOP-BR6Q9RK\Rachel
+RunAs User: DESKTOP-BR6Q9RK\Rachel
+Configuration Name: 
+Machine: DESKTOP-BR6Q9RK (Microsoft Windows NT 10.0.18362.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 18348
+PSVersion: 5.1.18362.752
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.18362.752
+BuildVersion: 10.0.18362.752
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is log_svn_client.txt
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> svn checkout svn+ssh://rfriedman113@DESKTOP-BR6Q9RK/repos/covid_app
+rfriedman113@desktop-br6q9rk's password:
+Checked out revision 0.
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> vim features.txt
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> mv features.txt covid_app/
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> cd covid_app
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> ls
+
+
+    Directory: C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        7/22/2020   4:17 PM            199 features.txt
+
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> cat features.txt
+FEATURES
+---------
+Report symptoms
+Statistics
+User feedback
+Report positive test result
+Notification if positive person within 50 feet and 5 days
+Shows testing sites and mask selling sites
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn add features.txt
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn commit -m "Added features"
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> vim main.py
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> cat main.py
+print("\nWelcome to our Covid Anonymous App")
+print("This app will help slow the spread of Covid-19.")
+print("--under development--")
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn add main.py
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn status
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn commit -m "added main.py"
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> python main.py
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> vim main.py
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> python main.py
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn commit -m "edited main.py, added Stay Safe!"
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> ls
+
+
+    Directory: C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        7/22/2020   4:23 PM           2798 .main.py.un~
+-a----        7/22/2020   4:17 PM            199 features.txt
+-a----        7/22/2020   4:23 PM            229 main.py
+-a----        7/22/2020   4:22 PM            202 main.py~
+
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn list svn+ssh://rfriedman113@DESKTOP-BR6Q9RK/repos/covid_app/
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn log
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> cd ..
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> rm -r -fo covid_app
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> svn checkout svn+ssh://rfriedman113@DESKTOP-BR6Q9RK/repos/covid_app/
+rfriedman113@desktop-br6q9rk's password:
+A    covid_app\features.txt
+A    covid_app\main.py
+Checked out revision 3.
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK> cd covid_app
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn log
+
+Added features
+------------------------------------------------------------------------
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> vim features.txt
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn status
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> svn commit -m"added check back for more features to features.txt"
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> python main.py
+
+PS C:\Users\Rachel\Documents\Brooklyn College Summer II\Large Scale App 3140\Week2\MY WORK\covid_app> stop-transcript
+**********************
+Windows PowerShell transcript end
+End time: 20200722162831
+**********************
