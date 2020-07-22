@@ -1,0 +1,30 @@
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ vim makefile
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ cat makefile
+git:
+        git add .
+        git commit -m "$m"
+        git push -u origin master
+
+Rachel@DESKTOP-BR6Q9RK MINGW64 ~/Documents/Brooklyn College Summer II/Large Scale App 3140/Week2/MY WORK/CISC_3140_Task1 (master)
+$ make m="adding test file"
+git add .
+git commit -m "adding test file"
+[master 09aa10c] adding test file
+ 2 files changed, 6 insertions(+)
+ create mode 100644 makefile
+ create mode 100644 test.txt
+git push -u origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 437 bytes | 109.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/rachelf21/CISC_3140_Task1.git
+   a4c6ec5..09aa10c  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
